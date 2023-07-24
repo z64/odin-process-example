@@ -8,8 +8,8 @@ run_command :: proc(cmd: string, input: Maybe(string)) -> string {
 
     if input, ok := input.?; ok {
         os.write(p.input, transmute([]byte)input)
-        os.close(p.input)
     }
+    os.close(p.input)
 
     process_wait(p)
 
